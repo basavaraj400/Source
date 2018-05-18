@@ -1,0 +1,21 @@
+stage('dev'){
+	echo 'dev build runs'
+}
+stage('stag'){
+	node {
+		def exists = fileExists 'Source/Jenkinsfile.txt'
+		echo '${exists}'
+		if(exists){
+			echo 'File found'
+		} else{
+			error 'File not found'
+		}
+	}
+}
+stage('pre-prod'){
+	echo 'pe-prod build runs'
+}
+stage('prod'){
+	echo 'prod build runs'
+} 
+ 
